@@ -8,8 +8,14 @@ try
     //using var connection = new connection().obterconexao();
     //connection.open();
     //console.writeline(connection.state);
-    var connection = new Connection();
-    var listaArtistas = connection.Listar();
+    //var connection = new Connection();
+
+    var artistaDAL = new ArtistaDAL();
+
+    artistaDAL.Adicionar(new Artista("Foo Fighters", "Foo Fighters é uma banda de rock alternativo americana formada por Dave Grohl em 1995."));
+
+
+    var listaArtistas = artistaDAL.Listar();
     foreach (var artista in listaArtistas) {
         Console.WriteLine(artista);
     }
@@ -18,7 +24,7 @@ catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
-return;
+//return;
 
 
 
