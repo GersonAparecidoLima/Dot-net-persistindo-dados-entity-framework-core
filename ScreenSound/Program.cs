@@ -3,17 +3,22 @@ using ScreenSound.Menus;
 using ScreenSound.Modelos;
 
 // Testando a conexão
-//try
-//{
-//    using var connection = new Connection().ObterConexao();
-//    connection.Open();
-//    Console.WriteLine(connection.State);
-//}
-//catch (Exception ex)
-//{
-//    Console.WriteLine(ex.Message);
-//}
-//return;
+try
+{
+    //using var connection = new connection().obterconexao();
+    //connection.open();
+    //console.writeline(connection.state);
+    var connection = new Connection();
+    var listaArtistas = connection.Listar();
+    foreach (var artista in listaArtistas) {
+        Console.WriteLine(artista);
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+return;
 
 
 
