@@ -12,6 +12,7 @@ namespace ScreenSound.Banco;
 internal class ScreenSoundContext : DbContext
 {
     public DbSet<Artista> Artistas { get; set; }
+    public DbSet<Musica> Musicas { get; set; }
 
     //Define como conectar ao banco de dados.
     private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ScreenSound;Integrated Security=True;Encrypt=False";

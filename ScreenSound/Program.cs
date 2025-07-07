@@ -2,48 +2,27 @@
 using ScreenSound.Menus;
 using ScreenSound.Modelos;
 
-// Testando a conexão
-try
+var context = new ScreenSoundContext();
+var artistaDAL = new ArtistaDAL(context);
+var musicaDAL = new MusicaDAL(context);
+
+
+var musicaNova = new Musica("Zero") { Id = 3 };
+var musicaNova2 = new Musica("Girassol editada") { Id = 2 };
+/*musicaDAL.Adicionar(musicaNova);*/
+musicaDAL.Atualizar(musicaNova2);
+musicaDAL.Deletar(musicaNova);
+
+
+var listaDeMusicas = musicaDAL.Listar();
+foreach (var musica in listaDeMusicas)
 {
-    //using var connection = new connection().obterconexao();
-    //connection.open();
-    //console.writeline(connection.state);
-    //var connection = new Connection();
-
-    var artistaDAL = new ArtistaDAL();
-
-    // artistaDAL.Adicionar(new Artista("Foo Fighters", "Foo Fighters é uma banda de rock alternativo americana formada por Dave Grohl em 1995."));
-
-    artistaDAL.Adicionar(new Artista("Diante do Trono", "é um grupo musical brasileiro de música cristã contemporânea e congregacional formado em 1997 na Igreja Batista da Lagoinha, na cidade de Belo Horizonte.."));
-
-    //var artistaPitty = new Artista("Pitty", "Priscilla Novaes Leone, mais conhecida como Pitty, é uma cantora, compositora, produtora, escritora e multi-instrumentista brasileira.") { Id = 1003 };
-
-    //artistaDAL.Atualizar(artistaPitty);
-    //artistaDAL.Deletar(artistaPitty);
-
-    var listaArtistas = artistaDAL.Listar();
-    foreach (var artista in listaArtistas) {
-        Console.WriteLine(artista);
-    }
-
+    Console.WriteLine(musica);
 }
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-//return;
+
+return;
 
 
-
-
-
-
-Artista ira = new Artista("Ira!", "Banda Ira!");
-Artista beatles = new("The Beatles", "Banda The Beatles");
-
-Dictionary<string, Artista> artistasRegistrados = new();
-artistasRegistrados.Add(ira.Nome, ira);
-artistasRegistrados.Add(beatles.Nome, beatles);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarArtista());
@@ -79,10 +58,11 @@ void ExibirOpcoesDoMenu()
     string opcaoEscolhida = Console.ReadLine()!;
     int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
 
+
     if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
         Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica];
-        menuASerExibido.Executar(artistasRegistrados);
+        menuASerExibido.Executar(artistaDAL);
         if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
     } 
     else
