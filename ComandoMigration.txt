@@ -16,4 +16,13 @@ Build started...
 Build succeeded.
 Applying migration '20250709180514_PopularTabela'.
 Done.
+PM> Add-Migration AdicionarColunaAnoLancamento
+Build started...
+Build succeeded.
+To undo this action, use Remove-Migration.
+PM> Update-Database
+Build started...
+Build succeeded.
+Applying migration '20250709184707_AdicionarColunaAnoLancamento'.
+Done.
 PM> 
