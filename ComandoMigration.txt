@@ -1,0 +1,19 @@
+PM> Add-Migration projetoInicial
+Build started...
+Build succeeded.
+To undo this action, use Remove-Migration.
+PM> Update-Database projetoInicial
+Build started...
+Build succeeded.
+Applying migration '20250709175414_projetoInicial'.
+Done.
+PM> Add-Migration PopularTabela
+Build started...
+Build succeeded.
+To undo this action, use Remove-Migration.
+PM> Update-Database
+Build started...
+Build succeeded.
+Applying migration '20250709180514_PopularTabela'.
+Done.
+PM> 
