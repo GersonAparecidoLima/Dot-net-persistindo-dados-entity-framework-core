@@ -25,4 +25,9 @@ Build started...
 Build succeeded.
 Applying migration '20250709184707_AdicionarColunaAnoLancamento'.
 Done.
-PM> 
+PM> Add-Migration PopularTabelaMusica
+PM> Update-Database
+Build started...
+Build succeeded.
+Applying migration '20250709191108_PopularTabelaMusica'.
+Done.
