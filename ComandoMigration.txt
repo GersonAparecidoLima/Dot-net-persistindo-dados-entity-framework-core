@@ -31,3 +31,13 @@ Build started...
 Build succeeded.
 Applying migration '20250709191108_PopularTabelaMusica'.
 Done.
+PM> Add-Migration RelacionarArtistaMusica
+Build started...
+Build succeeded.
+To undo this action, use Remove-Migration.
+PM> Update-Database
+Build started...
+Build succeeded.
+Applying migration '20250710172914_RelacionarArtistaMusica'.
+Done.
+PM> 
